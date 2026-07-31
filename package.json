@@ -1,5 +1,5 @@
 {
-  "name": "intro-express-js-juan-esteban-angulo-perez",
+  "name": "intro-express-js-yahir-santiago-moran-chiquiza",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,8 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "express": "^5.2.1"
   }
 }
