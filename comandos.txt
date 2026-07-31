@@ -4,3 +4,11 @@ node --watch app.js
 OTRO COMANDO PARA INICIAR EL SERVIDOR, configurado package.json
 
 npm run dev
+
+COMANDO GIT 
+VER CONFIGURACION git config --global --list
+git config --list
+
+BORRAR CONFIGURACIONES
+git config --global --unset user.name
+git config --global --unset user.email
