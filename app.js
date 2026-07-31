@@ -21,6 +21,11 @@ app.get ("/ruta2", (req, res)=>{
     res.json({"nombre" : "yo", "apellido": "no", "cargo": "mucho"})
 });
 
+app.get ("/ruta3/:aprendiz", (req, res)=>{
+    const dato_aprendiz = req.params.aprendiz
+    res.json({"nombre": dato_aprendiz})
+});
+
 app.listen(port, () => {
   console.log(`Servidor en funcionamiento en el puerto: http://localhost:${port}`)
 });
