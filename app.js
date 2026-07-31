@@ -21,10 +21,20 @@ app.get ("/ruta2", (req, res)=>{
     res.json({"nombre" : "yo", "apellido": "no", "cargo": "mucho"})
 });
 
-app.get ("/ruta3/:aprendiz", (req, res)=>{
+app.get ("/ruta3/:aprendiz/:otrodato", (req, res)=>{
     const dato_aprendiz = req.params.aprendiz
-    res.json({"nombre": dato_aprendiz})
+    const otro_dato = req.params.otrodato
+    res.json({"nombre": dato_aprendiz, "otro": otro_dato})
 });
+
+app.get("/ruta4",(req, res) =>{
+    const orden = req.query.orden || "sin ordenar"
+    const pagina = req.query.pagina || 1
+    res.send(`<h1>Lista aprendices </h1>
+        <p>El listado esta en orden ${orden}</p>
+        <p>pagina: ${pagina}</p>
+        `)
+})
 
 app.listen(port, () => {
   console.log(`Servidor en funcionamiento en el puerto: http://localhost:${port}`)
