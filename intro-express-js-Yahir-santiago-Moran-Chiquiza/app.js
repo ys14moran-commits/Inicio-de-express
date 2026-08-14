@@ -16,4 +16,4 @@ require('dotenv').config();
     }); 
     // Iniciar el servidor
  app.listen(PORT, () => { 
-    console.log(`Servidor corriendo exitosamente en el puerto http://localhost:3030/ ${PORT}`); }); 
+    console.log(`Servidor corriendo exitosamente en el puerto http://localhost:${PORT}`); }); 
