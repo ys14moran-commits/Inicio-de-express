@@ -9,6 +9,7 @@ const app = express();
 const port = process.env.PUERTO || 5050;
 //uso de middleware body-parse
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 
 app.get("/", (_, res) => {
@@ -49,36 +50,30 @@ app.post("/Ruta2",(req, res)=>{
     })
 })
 
-app.post("/login", (req, res) => {
+// Actividad : endpoint login
+app.post("/login", function(req, res){
 
     const usuario = req.body.usuario
     const perfil = req.body.perfil
-    const contraseña = req.body.contraseña
+    const clave = req.body.clave
 
-    // Validar si faltan datos
-    if (!usuario, !perfil, !contraseña) {
-        return res.status(400).json({
-            mensaje: "Faltan datos. Debe enviar usuario, perfil y contraseña"
-        })
+    if (perfil === "admin" &&  clave === "12345"){
+        return res.send (`Bienvenido administrador: ${usuario}, Clave correcta: ${clave}`)
     }
 
-    // Validar el perfil
-    if (perfil === "admin") {
-        return res.status(200).json({
-            mensaje: `Bienvenido ${usuario}, ha ingresado como administrador`
-        })
+    else {
+        return res.send (`Clave incorrecta: ${clave}`)
     }
 
-    if (perfil === "usuario") {
-        return res.status(200).json({
-            mensaje: `Bienvenido ${usuario}, ha ingresado como usuario`
-        })
-    }
+})
 
-    // Si el perfil no es válido
-    return res.status(403).json({
-        mensaje: "No tiene acceso. El perfil ingresado no es válido"
-    })
+//formulario
+app.post("/formulario", (req, res) =>{
+    const datosForm = req.body
+    const miNombre = req.body.nombre
+    const miApellido = req.body.apellido
+    const cargo = req.body.cargo
+    res.status(200).json({Mensaje:"datos resibidos", nombre: miNombre, apellido : miApellido, cargo:cargo})
 })
 
 app.listen(port, () => {
