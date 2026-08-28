@@ -7,6 +7,9 @@ configDotenv()
 
 const app = express();
 const port = process.env.PUERTO || 5050;
+//uso de middleware body-parse
+app.use(express.json())
+
 
 app.get("/", (_, res) => {
   res.send("Aprendiendo express, ficha 3407181, ADSO en el curso de desarrollo web el 31 de julio de 2026");
@@ -34,6 +37,48 @@ app.get("/ruta4",(req, res) =>{
         <p>El listado esta en orden ${orden}</p>
         <p>pagina: ${pagina}</p>
         `)
+})
+
+//endpoint para envio de datos
+app.post("/Ruta2",(req, res)=>{
+    const todosDatos = req.body
+    const name = req.body.nombre
+    const lastname = req.body.Cargo
+    res.status(201).json({Datos: todosDatos, nombre:name,
+        cargo : lastname
+    })
+})
+
+app.post("/login", (req, res) => {
+
+    const usuario = req.body.usuario
+    const perfil = req.body.perfil
+    const contraseña = req.body.contraseña
+
+    // Validar si faltan datos
+    if (!usuario, !perfil, !contraseña) {
+        return res.status(400).json({
+            mensaje: "Faltan datos. Debe enviar usuario, perfil y contraseña"
+        })
+    }
+
+    // Validar el perfil
+    if (perfil === "admin") {
+        return res.status(200).json({
+            mensaje: `Bienvenido ${usuario}, ha ingresado como administrador`
+        })
+    }
+
+    if (perfil === "usuario") {
+        return res.status(200).json({
+            mensaje: `Bienvenido ${usuario}, ha ingresado como usuario`
+        })
+    }
+
+    // Si el perfil no es válido
+    return res.status(403).json({
+        mensaje: "No tiene acceso. El perfil ingresado no es válido"
+    })
 })
 
 app.listen(port, () => {
