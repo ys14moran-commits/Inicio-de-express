@@ -20,6 +20,10 @@ app.get("/api/aprendices", function(req, res){
     })
 })
 
+//aprendices
+app.post("/api/aprendices",(req,res) =>{
+    res.json({Mensaje: "Trabajando en el enpoint"})
+})
 
 app.listen(puerto, function(){
      console.log(`Servidor corriendo exitosamente en el puerto http://localhost:${puerto}`);
