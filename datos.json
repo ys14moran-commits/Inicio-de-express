@@ -1,18 +1,43 @@
 [
-    {
-        "dni": 1,
-        "nombre": "ana",
-        "apellido": "martinez",
-        "correo": "ana@gmail.com",
-        "imagen": "foto.jpg"
-    },
-
-    {
-        "dni": 2,
-        "nombre": "juan",
-        "apellido": "rodriguez",
-        "correo": "juan@gmail.com",
-        "imagen": "foto.jpg"
-    }
-
+  {
+    "dni": 1,
+    "nombre": "ana",
+    "apellido": "martinez",
+    "correo": "ana@gmail.com",
+    "imagen": "foto.jpg"
+  },
+  {
+    "dni": 2,
+    "nombre": "juan",
+    "apellido": "rodriguez",
+    "correo": "juan@gmail.com",
+    "imagen": "foto.jpg"
+  },
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  {
+    "nombre": "pedro",
+    "apellido": "alonso",
+    "correo": "pedro@gmail.com"
+  },
+  null,
+  {
+    "nombre": "yahir",
+    "apellido": "moran",
+    "correo": "ys14@gmail.com"
+  },
+  {
+    "nombre": "santiago",
+    "apellido": "moran",
+    "correo": "s14@gmail.com"
+  },
+  {
+    "nombre": "yahir",
+    "cargo": "un chat",
+    "correo": "chat@gmail.com"
+  }
 ]
