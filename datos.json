@@ -39,5 +39,48 @@
     "nombre": "yahir",
     "cargo": "un chat",
     "correo": "chat@gmail.com"
+  },
+  {
+    "nombre": "gato cucurela",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cucurela",
+    "imagen": "/misImagenes/1789129464195"
+  },
+  {
+    "nombre": "gato cucurela",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cucurela",
+    "imagen": "/misImagenes/1789129554879"
+  },
+  {
+    "nombre": "gato cucurela",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cucurela",
+    "imagen": "/misImagenes/1789129597131"
+  },
+  {
+    "nombre": "gato cucurela",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cucurela",
+    "imagen": "/misImagenes/1789129702523.jpg"
+  },
+  {
+    "nombre": "gato cucurela",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cucurela",
+    "imagen": "/misImagenes/1789131439005.jpg"
+  },
+  {
+    "nombre": "gato",
+    "correo": "cucucat@gmail.com",
+    "apellido": "cu",
+    "id": 1789131684184,
+    "imagen": "/misImagenes/1789131684182.jpg"
+  },
+  {
+    "nombre": "juan",
+    "correo": "juan_el_cabalo67@gmail.com",
+    "id": 1789134441824,
+    "imagen": "/misImagenes/1789134441823.webp"
   }
 ]
