@@ -1,13 +1,14 @@
-const express = require ("express");
-const app = express();
+const express = require ("express")
+const app = express()
 require("dotenv").config()
-const puerto = process.env.PUERTO || 3000;
+const puerto = process.env.PUERTO || 5000;
 //configurar para la lectura del archivo
 const sistemaArchivo = require("fs")
 const ruta = require("path")
 const rutaArchivoJson = ruta.join(__dirname, "datos.json")
 //importal libreria para subir archivos
 const multer = require("multer")
+const jwt = require("jsonwebtoken")
 const { validarAprendiz, generarId } = require("./utilidades/validacion");
 //configuracion almacenamiento
 const almacenamiento =multer.diskStorage({
@@ -24,7 +25,10 @@ const almacenamiento =multer.diskStorage({
 
 const subirArchivo = multer ({storage: almacenamiento})
 
+//parte de los middleware
 const registromiddeleware = require("./middleware/registromiddleware")
+const manejadorErrores = require ("./middleware/manejadorErrores")
+const autenticarMiddelware = require("./middleware/autenticarMiddleware")
 
 app.use(registromiddeleware)
 
@@ -103,6 +107,38 @@ app.post("/api/aprendices", subirArchivo.single("imagen"), (req, res) => {
     })
 })
 
+//provocar error
+app.get("/error", (req,res,next)=>{
+    next(new Error("eRROR intencional para probar"))
+})
+
+//ruta protegida
+app.get("/rutaprotegida", autenticarMiddelware, (req, res)=>{
+    res.json({mensaje: "Estarura esta protegida."})
+})
+
+
+//endpoint iniciar secion, generar token
+app.post("/login", (req, res)=>{
+    //capturar usario de base datos
+    const {usuario, clave} = req.body
+    const usuarioBd = {"user": "yahir", "clave": "hola123"}
+    //verificar datos
+    if(usuario !== usuarioBd.user || clave !== usuarioBd.clave){
+        res.json({mensaje: "Credenciales incorrrectas"})
+    }
+    //GENERAR EL TOKEN
+    const token = jwt.sing(
+        {usuario: usuario},
+        process.env.JWT_SECRETO,
+        {expireIn: "2h"}
+    )
+    res.json({token: token})
+
+})
+
+//uso del middelware de errore
+app.use(manejadorErrores)
 
 
 app.listen(puerto, function(){
