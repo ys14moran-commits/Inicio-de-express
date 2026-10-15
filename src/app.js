@@ -7,7 +7,7 @@
  miApp.use(express.urlencoded({extended: true}))
  //importar middleware prpios
 
- //ruta principal de 
+ //ruta principal de mi api
  miApp.get("/", (req, res)=>{
     res.send("Mi API rest ficha 3407181")
  })
