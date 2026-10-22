@@ -1,4 +1,5 @@
  const express = require("express")
+ const enrutadorGeneral = require("./router")
 
  const miApp = express()
 
@@ -11,5 +12,7 @@
  miApp.get("/", (req, res)=>{
     res.send("Mi API rest ficha 3407181")
  })
+
+ miApp.use("/api", enrutadorGeneral)
 
  module.exports = miApp
